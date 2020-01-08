@@ -66,9 +66,6 @@ def plot_3d(volume_matrix,
     ax.set_zlabel(labels[2])
     ax.plot_wireframe(volume_matrix, temperature_matrix,
                       pressure_matrix, rstride=50, cstride=50)
-    # ax.view_init(30, vertical_angle)
-
-    # return fig,
 
 
 def animate(angle, save_angle=30, save_fig=False):
@@ -104,8 +101,8 @@ if __name__ == "__main__":
 
     anim = animation.FuncAnimation(fig,
                                    animate,
-                                   frames=361,  # in order to have 360° rotation
-                                   fargs=(30, False),
+                                   frames=361,  # 360° rotation
+                                   fargs=(30, False),  # set True to save
                                    interval=1,
                                    repeat=False)
 
