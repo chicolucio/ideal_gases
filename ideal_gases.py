@@ -60,12 +60,12 @@ def plot_3d(volume_matrix,
             Axes labels, by default ['Volume / m3', 'Temperature / K',
             'Pressure / Pa']
     """
-
+    ax = plt.gca()  # gca = get current axis
     ax.set_xlabel(labels[0])
     ax.set_ylabel(labels[1])
     ax.set_zlabel(labels[2])
     ax.plot_wireframe(volume_matrix, temperature_matrix,
-                      pressure_matrix, rstride=50, cstride=50)
+                      pressure_matrix, rstride=10, cstride=10)
 
 
 def animate(angle, save_angle=30, save_fig=False):
@@ -80,6 +80,7 @@ def animate(angle, save_angle=30, save_fig=False):
     save_fig : bool, optional
         if the plot should be saved or not, by default False
     """
+    ax = plt.gca()  # gca = get current axis
     ax.view_init(30, angle)
 
     if (angle % save_angle == 0) and save_fig:
@@ -92,8 +93,8 @@ if __name__ == "__main__":
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
 
-    vol = np.linspace(1, 10, 400)
-    temp = np.linspace(1, 300, 400)
+    vol = np.linspace(1, 10, 100)
+    temp = np.linspace(1, 300, 100)
 
     v, t, p = grid_points(vol, temp)
 
