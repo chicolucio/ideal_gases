@@ -45,8 +45,7 @@ def grid_points(volume_array,
 def plot_3d(volume_matrix,
             temperature_matrix,
             pressure_matrix,
-            labels=['Volume / m3', 'Temperature / K', 'Pressure / Pa'],
-            save_angle=30):
+            labels=['Volume / m3', 'Temperature / K', 'Pressure / Pa']):
     """3D plot for pressure, volume and temperature of an ideal gas.
 
         Parameters
@@ -60,8 +59,6 @@ def plot_3d(volume_matrix,
         labels : list, optional
             Axes labels, by default ['Volume / m3', 'Temperature / K',
             'Pressure / Pa']
-        save_angle : int, optional
-            The angle interval to save the plot, by default 30
     """
 
     ax.set_xlabel(labels[0])
@@ -75,6 +72,17 @@ def plot_3d(volume_matrix,
 
 
 def animate(angle, save_angle=30, save_fig=False):
+    """Rotates the plot and optionally saves the plot periodically.
+
+    Parameters
+    ----------
+    angle : int
+        rotation angle
+    save_angle : int, optional
+        the angle interval between each save, by default 30
+    save_fig : bool, optional
+        if the plot should be saved or not, by default False
+    """
     ax.view_init(30, angle)
 
     if (angle % save_angle == 0) and save_fig:
@@ -96,8 +104,8 @@ if __name__ == "__main__":
 
     anim = animation.FuncAnimation(fig,
                                    animate,
-                                   frames=361,
-                                   fargs=(30, True),
+                                   frames=361,  # in order to have 360° rotation
+                                   fargs=(30, False),
                                    interval=1,
                                    repeat=False)
 
