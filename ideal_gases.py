@@ -9,7 +9,7 @@ def grid_points(volume_array,
                 temperature_array,
                 n_mol=1,
                 R=constants.gas_constant):
-    """Creates grid points to a 3D plot pressure x volume x temperatura.
+    """Creates grid points to a 3D plot pressure x volume x temperature.
     The pressure data are calculated with ideal gas formula from volume
     and temperature arrays.
 
@@ -26,7 +26,7 @@ def grid_points(volume_array,
     n_mol : int, optional
         number of moles of gas, by default 1
     R : float, optional
-        ideal gas constante, by default constants.gas_constant
+        ideal gas constant, by default constants.gas_constant
 
     Returns
     -------
@@ -58,7 +58,8 @@ def plot_3d(volume_matrix,
     pressure_matrix : ndarray
         pressure matrix
     labels : list, optional
-        Axes labels, by default ['Volume / m3', 'Temperature / K', 'Pressure / Pa']
+        Axes labels, by default ['Volume / m3', 'Temperature / K',
+        'Pressure / Pa']
     save_fig : bool, optional
         If the plot should be saved periodically (an 'images' folder
         will be created if not exists), by default True
