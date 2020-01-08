@@ -9,6 +9,30 @@ def grid_points(volume_array,
                 temperature_array,
                 n_mol=1,
                 R=constants.gas_constant):
+    """Creates grid points to a 3D plot pressure x volume x temperatura.
+    The pressure data are calculated with ideal gas formula from volume
+    and temperature arrays.
+
+    The R value is taken from SciPy constants by default. So the values are
+    considered to be in SI units. The user can change the parameter R to use
+    another unit system.
+
+    Parameters
+    ----------
+    volume_array : array
+        volume array
+    temperature_array : array
+        volume array
+    n_mol : int, optional
+        number of moles of gas, by default 1
+    R : float, optional
+        ideal gas constante, by default constants.gas_constant
+
+    Returns
+    -------
+    tuple
+        volume, temperature and pressure matrices
+    """
     volume_matrix, temperature_matrix = np.meshgrid(
         volume_array, temperature_array)
 
@@ -23,6 +47,24 @@ def plot_3d(volume_matrix,
             labels=['Volume / m3', 'Temperature / K', 'Pressure / Pa'],
             save_fig=True,
             save_angle=30):
+    """3D plot for pressure, volume and temperature of an ideal gas.
+
+    Parameters
+    ----------
+    volume_matrix : ndarray
+        volume matrix
+    temperature_matrix : ndarray
+        temperature matrix
+    pressure_matrix : ndarray
+        pressure matrix
+    labels : list, optional
+        Axes labels, by default ['Volume / m3', 'Temperature / K', 'Pressure / Pa']
+    save_fig : bool, optional
+        If the plot should be saved periodically (an 'images' folder
+        will be created if not exists), by default True
+    save_angle : int, optional
+        The angle interval to save the plot, by default 30
+    """
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(111, projection='3d')
     ax.plot_wireframe(volume_matrix, temperature_matrix,
