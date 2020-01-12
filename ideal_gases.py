@@ -45,7 +45,8 @@ def grid_points(volume_array,
 def plot_3d(volume_matrix,
             temperature_matrix,
             pressure_matrix,
-            labels=['Volume / m3', 'Temperature / K', 'Pressure / Pa']):
+            labels=['Volume / m3', 'Temperature / K', 'Pressure / Pa'],
+            step=10):
     """3D plot for pressure, volume and temperature of an ideal gas.
 
         Parameters
@@ -59,13 +60,15 @@ def plot_3d(volume_matrix,
         labels : list, optional
             Axes labels, by default ['Volume / m3', 'Temperature / K',
             'Pressure / Pa']
+        step : int, optional
+            line separation
     """
     ax = plt.gca()  # gca = get current axis
     ax.set_xlabel(labels[0])
     ax.set_ylabel(labels[1])
     ax.set_zlabel(labels[2])
     ax.plot_wireframe(volume_matrix, temperature_matrix,
-                      pressure_matrix, rstride=10, cstride=10)
+                      pressure_matrix, rstride=step, cstride=step)
 
 
 def animate(angle, save_angle=30, save_fig=False):
