@@ -12,4 +12,4 @@ python ideal_gases.py
 
 An animation like the one in this readme will be generated.
 
-See the [tutorial file](tutorial.ipynb) to more use examples.
+See the [tutorial file](tutorial.ipynb) for more usage examples.
