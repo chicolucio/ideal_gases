@@ -4,7 +4,7 @@ A simple script to plot pressure *vs* temperature *vs* volume for an ideal gas.
 
 ![Animation gif](animation.gif)
 
-You can run a sample via command line from the project folder:
+You can run a sample via command line from the project folder after cloning this repo:
 
 ```bash
 python ideal_gases.py
